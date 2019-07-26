@@ -6,6 +6,31 @@
 //heroku -v
 //git --version
 //git init
+//git status
+//.gitignore
+//git add .
+//git commit -m "inital commit"
+
+//ssh keygeneration:
+//ls -a -l ~/.ssh
+//ssh-keygen -t rsa -b 4096 -C "oliver@busche.eu.com"
+//eval "$(ssh-agent -s)"
+//ssh-add -K ~/.ssh/id_rsa
+
+//git remote add origin https://github.com/obusche/node3-weather-website.git
+//git push -u origin master 
+//cat ~/.ssh/id_rsa.pub -> Show ssh key
+//ssh -T git@github.com -> Test connection
+
+//HEROKU
+//heroku keys:add -> upload public ssh key
+/*Creating ⬢ obusche-weather-application... done
+https://obusche-weather-application.herokuapp.com/ | https://git.heroku.com/obusche-weat
+her-application.git
+*/
+
+//npm run start -> starts the application via package.jason specified start procedure
+
 
 const path = require('path')
 const express = require('express')
@@ -14,6 +39,7 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
 const app = express()
+const port = process.env.PORT || 3000
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -105,6 +131,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
 })
