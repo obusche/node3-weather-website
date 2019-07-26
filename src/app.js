@@ -31,6 +31,12 @@ her-application.git
 
 //npm run start -> starts the application via package.jason specified start procedure
 
+/* Comitting files to github.com and Heroku
+    git add .
+    git commit
+    git push
+    git push heroku master
+*/
 
 const path = require('path')
 const express = require('express')
@@ -57,14 +63,14 @@ app.use(express.static(publicDirectoryPath))
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather',
-        name: 'Andrew Mead'
+        name: 'Oliver Busche'
     })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About Me',
-        name: 'Andrew Mead'
+        name: 'Oliver Busche'
     })
 })
 
@@ -72,7 +78,7 @@ app.get('/help', (req, res) => {
     res.render('help', {
         helpText: 'This is some helpful text.',
         title: 'Help',
-        name: 'Andrew Mead'
+        name: 'Oliver Busche'
     })
 })
 
